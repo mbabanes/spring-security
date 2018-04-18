@@ -1,24 +1,24 @@
 package pl.javastart;
 
-import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
-
-public class AppInitializer implements WebApplicationInitializer
+public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer
 {
     @Override
-    public void onStartup(ServletContext servletContext) throws ServletException
+    protected Class<?>[] getRootConfigClasses()
     {
-        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        ctx.setServletContext(servletContext);
+        return null;
+    }
 
-        DispatcherServlet dispatcherServlet = new DispatcherServlet(ctx);
+    @Override
+    protected Class<?>[] getServletConfigClasses()
+    {
+        return new Class[]{WebConfig.class};
+    }
 
-        ServletRegistration.Dynamic dispatcherConfig = servletContext.addServlet("dispatcher", dispatcherServlet);
-        dispatcherConfig.addMapping("/");
+    @Override
+    protected String[] getServletMappings()
+    {
+        return new String[]{"/"};
     }
 }
