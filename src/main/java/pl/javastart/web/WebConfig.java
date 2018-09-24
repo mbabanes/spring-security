@@ -1,24 +1,23 @@
-package pl.javastart;
+package pl.javastart.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages = "pl.javastart")
 @EnableWebMvc
-public class WebConfig extends WebMvcConfigurerAdapter
+public class WebConfig extends WebMvcConfigurationSupport
 {
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)
-    {
-        configurer.enable();
-    }
+//    @Override
+//    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)
+//    {
+//        configurer.enable();
+//    }
 
     @Bean
     public ViewResolver viewResolver()
@@ -29,4 +28,6 @@ public class WebConfig extends WebMvcConfigurerAdapter
 
         return viewResolver;
     }
+
+
 }

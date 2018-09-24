@@ -1,13 +1,15 @@
 package pl.javastart;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import pl.javastart.security.SecurityConfig;
+import pl.javastart.web.WebConfig;
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer
 {
     @Override
     protected Class<?>[] getRootConfigClasses()
     {
-        return null;
+        return new Class[]{SecurityConfig.class};
     }
 
     @Override
