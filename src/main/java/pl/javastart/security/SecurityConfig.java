@@ -29,6 +29,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/loginform").permitAll();
+                .loginPage("/loginform").permitAll()
+                    .loginProcessingUrl("/processlogin").permitAll()
+                    .usernameParameter("user")
+                .passwordParameter("pass")
+                .and()
+                .logout()
+                    .logoutUrl("/logmeout")
+                        .logoutSuccessUrl("/")
+                        .permitAll();
     }
 }

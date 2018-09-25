@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+ xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
@@ -9,5 +10,10 @@
     <p>
         <a href="secret">Secret area</a>
     </p>
+<div>
+    <form action="/logmeout" th:action="@{/logmeout}" method="post">
+        <p><input type="submit" value="Logout" ></p>
+    </form>
+</div>
 </body>
 </html>
