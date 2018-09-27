@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableTransactionManagement
+//@EnableTransactionManagement
 public class DbConfig
 {
     @Bean
@@ -20,6 +20,7 @@ public class DbConfig
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setDatabase(Database.MYSQL);
         adapter.setShowSql(true);
+        adapter.setGenerateDdl(false);
 
         return adapter;
     }
@@ -28,7 +29,7 @@ public class DbConfig
     public DataSource createDS()
     {
         MysqlDataSource ds = new MysqlDataSource();
-        ds.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false");
+        ds.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC");
         ds.setUser("root");
         ds.setPassword("");
 
