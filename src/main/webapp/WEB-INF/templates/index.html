@@ -8,12 +8,7 @@
 <body>
     <h1>Thymeleaf work fine!</h1>
     <p>
-        <a href="secret">Secret area</a>
+        <a href="#" th:href="@{/secured}">Secret area</a>
     </p>
-<div>
-    <form action="/logmeout" th:action="@{/logmeout}" method="post">
-        <p><input type="submit" value="Logout" ></p>
-    </form>
-</div>
 </body>
 </html>

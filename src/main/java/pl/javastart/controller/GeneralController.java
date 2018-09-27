@@ -13,15 +13,10 @@ public class GeneralController
         return "index";
     }
 
-    @RequestMapping("/secret")
+    @RequestMapping("/secured")
     public String secret()
     {
-        return "secret";
+        return "secured";
     }
 
-    @GetMapping("/loginform")
-    public String loginForm()
-    {
-        return "login_form";
-    }
 }
